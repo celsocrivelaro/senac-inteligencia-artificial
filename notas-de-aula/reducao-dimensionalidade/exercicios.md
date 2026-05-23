@@ -24,7 +24,7 @@ O professor deseja construir um **índice composto de desempenho matemático** q
 ### Pede-se
 
 1. Calcule o vetor de médias $\bar{x}$ e construa $X_c = X - \bar{x}$.
-2. Compute os desvios-padrão $s_1$ e $s_2$. **É necessário padronizar?** Justifique.
+2. Compute as variâncias $\sigma_{11}$ e $\sigma_{22}$. **É necessário padronizar?** Justifique comparando a razão entre as duas variâncias.
 3. Construa a matriz de covariância $\Sigma \in \mathbb{R}^{2 \times 2}$.
 4. Resolva $\det(\Sigma - \lambda I) = 0$ e obtenha os dois autovalores $\lambda_1 > \lambda_2$.
 5. Calcule a **variância explicada** por PC1 e PC2.

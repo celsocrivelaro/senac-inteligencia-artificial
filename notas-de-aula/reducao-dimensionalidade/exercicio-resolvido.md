@@ -78,11 +78,11 @@ $\sum x_2^c = -4-5-2-3-1+0+1+0+3+3+4+4 = 0$ ✓
 
 ## Passo 2 — Padronização (análise contextual)
 
-A padronização é **opcional** e só se torna obrigatória quando as features estão em escalas radicalmente diferentes (ex.: salário em R\$ vs. idade em anos). Vamos verificar a necessidade calculando os desvios-padrão amostrais.
+A padronização é **opcional** e só se torna obrigatória quando as features estão em escalas radicalmente diferentes (ex.: salário em R\$ vs. idade em anos). Vamos verificar a necessidade comparando as **variâncias amostrais** das duas colunas.
 
-### 2.1 Cálculo dos desvios-padrão
+### 2.1 Cálculo das variâncias
 
-Lembrando que $s_j = \sqrt{\frac{1}{n-1} \sum_{i=1}^n (x_{ij} - \bar{x}_j)^2}$:
+Lembrando que $\text{Var}(x_j) = \sigma_{jj} = \frac{1}{n-1} \sum_{i=1}^n (x_{ij} - \bar{x}_j)^2$:
 
 $$\sum_{i=1}^{12} (x_{i1}^c)^2 = 25+16+9+4+1+1+0+1+4+9+16+36 = 122$$
 
@@ -90,15 +90,15 @@ $$\sum_{i=1}^{12} (x_{i2}^c)^2 = 16+25+4+9+1+0+1+0+9+9+16+16 = 106$$
 
 Com $n-1 = 11$:
 
-$$s_1 = \sqrt{122/11} = \sqrt{11.0909} \approx 3.330$$
+$$\text{Var}(x_1) = \sigma_{11} = \frac{122}{11} \approx 11.0909$$
 
-$$s_2 = \sqrt{106/11} = \sqrt{9.6364} \approx 3.104$$
+$$\text{Var}(x_2) = \sigma_{22} = \frac{106}{11} \approx 9.6364$$
 
 ### 2.2 Decisão
 
-Como $s_1 \approx s_2$ (ambos na faixa de $\sim 3.1$ a $3.3$), as duas features já estão **na mesma ordem de grandeza**. **Não aplicamos padronização** neste exercício — usaremos diretamente $X_c$.
+Como $\sigma_{11} \approx \sigma_{22}$ (razão $\sigma_{11}/\sigma_{22} \approx 1.15$, ambas na faixa de $\sim 9.6$ a $\sim 11.1$), as duas features estão **na mesma ordem de grandeza de dispersão**. **Não aplicamos padronização** neste exercício — usaremos diretamente $X_c$.
 
-> 💡 Se tivéssemos padronizado, dividiríamos $x_{ij}^c$ por $s_j$, e a matriz de covariância passaria a coincidir com a **matriz de correlação**. Os autovetores resultantes seriam diferentes — e geralmente é isso que se quer fazer quando as escalas são heterogêneas.
+> 💡 A padronização adequada divide cada coluna pela raiz da sua variância. Após esse passo, a matriz de covariância coincide com a **matriz de correlação**. Os autovetores resultantes seriam diferentes — e geralmente é isso que se quer fazer quando as variâncias diferem em **ordens de magnitude** (p. ex. $\sigma_{11}/\sigma_{22} > 100$).
 
 ---
 
